@@ -123,6 +123,10 @@ header .info-header li a:hover, header .info-header li a:focus {
   border: solid 1px #fff;
   border-radius: 10px;
   padding: 10px;
+  transition: 0.4s;
+}
+.introducao .titulo-tecnologias .tecnologias li:hover {
+  transform: scale(110%);
 }
 .introducao .perfil {
   display: grid;
@@ -145,34 +149,96 @@ header .info-header li a:hover, header .info-header li a:focus {
 }
 .introducao .perfil a {
   display: grid;
+  position: relative;
   grid-template-columns: 1fr auto;
   justify-self: center;
   align-items: center;
   gap: 5px;
-  padding: 5px 10px;
+  padding: 2px 5px;
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 1.5rem;
   font-weight: 400;
   color: rgba(168, 168, 168, 0.8);
-  transition: 0.4s;
 }
 .introducao .perfil a:hover, .introducao .perfil a:focus {
   filter: drop-shadow(0 0 0 #fff);
 }
-.introducao .perfil a:hover::after, .introducao .perfil a:focus::after {
+.introducao .perfil a::after {
   content: "";
   position: absolute;
   display: block;
+  width: 0%;
   height: 2px;
-  bottom: 5px;
+  bottom: 0;
   background: #52000D;
-  animation: borderBottom 0.4s forwards;
+  transition: 0.4s;
 }
-@keyframes borderBottom {
-  from {
-    width: 0%;
-  }
-  to {
-    width: 100%;
-  }
+.introducao .perfil a:hover::after, .introducao .perfil a:focus::after {
+  width: 100%;
+}
+
+.apresentacao {
+  display: grid;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  gap: 60px;
+  grid-template-columns: 1fr 1fr;
+  color: #fff;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  position: relative;
+}
+.apresentacao h2 {
+  font-family: "IBM Plex Mono", sans-serif, monospace;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.apresentacao p {
+  display: grid;
+  align-content: center;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.5), 0px 2px 4px 0px rgba(19, 0, 31, 0.5);
+  padding: 30px;
+  height: 100%;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.apresentacao p span {
+  font-family: "IBM Plex Mono", sans-serif, monospace;
+  font-size: 2rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+.apresentacao p span + span + span {
+  margin-bottom: 30px;
+}
+.apresentacao p span::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #52000D;
+}
+.apresentacao::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 4px;
+  height: 80%;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5px;
+  background: linear-gradient(180deg, #52000D 0%, #180014 30%, #2F004D 70%, rgba(0, 0, 0, 0) 100%);
 }/*# sourceMappingURL=style.css.map */

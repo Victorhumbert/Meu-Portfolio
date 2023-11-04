@@ -126,7 +126,6 @@ header{
 }
 // Final Header
 
-
 // Inicio Introdução
 .introducao{
     display: flex;
@@ -152,6 +151,11 @@ header{
                 border: solid 1px #fff;
                 border-radius: 10px;
                 padding: 10px;
+                transition: .4s;
+
+                &:hover{
+                    transform: scale(110%);
+                }
             }
         }
     }
@@ -176,37 +180,107 @@ header{
 
         a{
             display: grid;
+            position: relative;
             grid-template-columns: 1fr auto;
             justify-self: center;
             align-items: center;
             gap: 5px;
-            padding: 5px 10px;
+            padding: 2px 5px;
             @include font-normal(24, 400);
             color: #A8A8A8cc;
-            transition: .4s;
 
             &:hover,
             &:focus{
                 filter: drop-shadow(0 0 0 #fff)
             }
-            &:hover::after,
-            &:focus::after{
+
+            &::after{
                 content: "";
                 position: absolute;
                 display: block;
+                width: 0%;
                 height: 2px;
-                bottom: 5px;
+                bottom: 0;
                 background: #52000D; 
-                animation: borderBottom .4s forwards;
+                transition: .4s;
             }
-            @keyframes borderBottom {
-                from{
-                    width: 0%;
-                } to {
-                    width: 100%;
-                }
+
+            &:hover::after,
+            &:focus::after{
+                width: 100%;
             }
         }
     }
 }
 // Final Introdução
+
+// Inicio Apresentação
+.apresentacao{
+    display: grid;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    gap: 60px;
+    grid-template-columns: 1fr 1fr;
+    color: #fff;
+    @include font-normal(28, 400);
+    position: relative;
+
+    h2{
+            @include font-display(32, 400);
+            color:#fff;
+            text-align: center;
+            margin-bottom: 15px;
+    }
+
+    p{
+        display: grid;
+        align-content: center;
+        border-radius: 15px;
+        background: rgba(0, 0, 0, 0.50);
+        box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, .50),
+                    0px 2px 4px 0px rgba(19, 0, 31, .50);
+        padding: 30px;
+        height: 100%;
+        @include font-normal(28, 400);
+        line-height: 1.5;
+
+        span{
+            @include font-display(32, 400);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+
+            & + span + span{
+            margin-bottom: 30px;
+            }
+
+            &::before{
+                content: "";
+                display: inline-block;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: #52000D;
+            }
+        }
+    }
+
+    &::after{
+        content: "";
+        display: block;
+        position: absolute;
+        width: 4px;
+        height: 80%;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 5px;
+        background: linear-gradient(180deg, 
+        #52000D 0%,
+        #180014 30%,
+        #2F004D 70%,
+        #0000 100%);
+    }
+}
+// Final Apresentação
