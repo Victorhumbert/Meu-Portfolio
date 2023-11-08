@@ -247,12 +247,13 @@ header .info-header li a:hover, header .info-header li a:focus {
 
 .projetos {
   overflow: hidden;
+  padding: 30px;
 }
 .projetos ul {
   overflow-x: scroll;
   display: flex;
   gap: 60px;
-  padding: 60px 30px 10px;
+  padding: 10px 0;
   scrollbar-width: thin;
   scrollbar-color: #2F004D #5F004D;
 }
