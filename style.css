@@ -5,6 +5,7 @@
   box-sizing: border-box;
   list-style: none;
   color: inherit;
+  outline: none;
 }
 
 img {
@@ -188,6 +189,7 @@ header .info-header li a:hover, header .info-header li a:focus {
   font-size: 1.75rem;
   font-weight: 400;
   position: relative;
+  padding: 0 30px;
 }
 .apresentacao h2 {
   font-family: "IBM Plex Mono", sans-serif, monospace;
@@ -241,4 +243,183 @@ header .info-header li a:hover, header .info-header li a:focus {
   transform: translateX(-50%);
   border-radius: 5px;
   background: linear-gradient(180deg, #52000D 0%, #180014 30%, #2F004D 70%, rgba(0, 0, 0, 0) 100%);
+}
+
+.projetos {
+  overflow: hidden;
+}
+.projetos ul {
+  overflow-x: scroll;
+  display: flex;
+  gap: 60px;
+  padding: 60px 30px 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #2F004D #5F004D;
+}
+.projetos ul li {
+  min-width: 560px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.projetos ul li + li::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -30px;
+  width: 4px;
+  height: 80%;
+  border-radius: 5px;
+  background: linear-gradient(180deg, #180014 0%, rgba(57, 0, 9, 0.37) 16.15%, rgba(16, 0, 27, 0.67) 71.35%, #2F004D 100%);
+}
+.projetos ul::-webkit-scrollbar {
+  width: auto;
+  height: 12px;
+}
+.projetos ul::-webkit-scrollbar-track {
+  background: #2F004D;
+  border-radius: 15px;
+}
+.projetos ul::-webkit-scrollbar-thumb {
+  border-radius: 15px;
+  background: #5F004D;
+  border: solid 3px #2F004D;
+}
+
+.certificados {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+.certificados h1 {
+  font-family: "IBM Plex Mono", sans-serif, monospace;
+  font-size: 4rem;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.certificados ul {
+  display: grid;
+  padding: 0 30px;
+  gap: 30px;
+}
+.certificados ul li {
+  display: grid;
+  border-radius: 15px 15px 150px 15px;
+  background: #180014;
+  box-shadow: 0px 4px 8px 0px rgba(9, 0, 0, 0.1);
+  padding: 15px 30px;
+}
+.certificados ul li h2 {
+  font-family: "IBM Plex Mono", sans-serif, monospace;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.certificados ul li h2 span {
+  font-family: "IBM Plex Mono", sans-serif, monospace;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #888;
+}
+.certificados ul li h2::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -1px;
+  width: 120px;
+  height: 2px;
+  border-radius: 15px;
+  background: #F00;
+}
+.certificados ul li span {
+  font-family: "IBM Plex Mono", sans-serif, monospace;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #888;
+  margin-bottom: 5px;
+}
+.certificados ul li a {
+  font-family: "IBM Plex Mono", sans-serif, monospace;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #fff;
+  text-decoration: underline;
+  transition: 0.4s;
+  justify-self: start;
+}
+.certificados ul li a:hover, .certificados ul li a:focus {
+  color: #a44444;
+}
+
+.formulario {
+  display: grid;
+  justify-content: center;
+  max-width: 500px;
+}
+.formulario h1 {
+  font-family: "IBM Plex Mono", sans-serif, monospace;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.formulario form {
+  display: grid;
+  gap: 20px;
+  border-radius: 15px;
+  background: #180014;
+  padding: 40px;
+  justify-content: center;
+}
+.formulario form div {
+  display: grid;
+  font-family: "IBM Plex Mono", sans-serif, monospace;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #fff;
+}
+.formulario form div input,
+.formulario form div textarea {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 10px 20px;
+  max-width: 50vw;
+  width: 50vw;
+  border-radius: 5px;
+  background: #2B001E;
+  box-shadow: 0px 4px 8px 0px rgba(13, 0, 30, 0.25);
+  color: #aaa;
+  border: 2px solid rgba(0, 0, 0, 0);
+  transition: 0.4s;
+}
+.formulario form div input:focus,
+.formulario form div textarea:focus {
+  border: 2px solid #B11983;
+  background: #FFF;
+  box-shadow: 0px 0px 8px 2px rgba(177, 25, 131, 0.3);
+  color: #000;
+}
+.formulario form button {
+  justify-self: center;
+  font-family: "IBM Plex Mono", sans-serif, monospace;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #af6fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid #3D0063;
+  background: rgba(18, 0, 30, 0.85);
+  box-shadow: 0px 2px 8px 0px rgba(162, 89, 255, 0.1);
+  cursor: pointer;
+  transition: 0.4s;
+}
+.formulario form button:hover, .formulario form button:focus {
+  background: rgb(25, 0, 40);
 }/*# sourceMappingURL=style.css.map */

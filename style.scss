@@ -16,6 +16,7 @@
     box-sizing: border-box;
     list-style: none;
     color: inherit;
+    outline: none;
 }
 
 img{
@@ -162,6 +163,7 @@ header{
 
     .perfil{
         display: grid;
+
         h1{
             @include font-display(32, 400);
             max-width: 100%;
@@ -224,6 +226,7 @@ header{
     color: #fff;
     @include font-normal(28, 400);
     position: relative;
+    padding: 0 30px;
 
     h2{
             @include font-display(32, 400);
@@ -284,3 +287,206 @@ header{
     }
 }
 // Final Apresentação
+
+// Inicio Projetos
+.projetos{
+    overflow: hidden;
+
+    ul{
+    overflow-x: scroll;
+    display: flex;
+    gap: 60px;
+    padding: 60px 30px 10px;
+
+
+    li{
+        min-width: 560px;
+        position: relative;
+        display: flex;
+        align-items: center;
+
+
+
+        & + li::before{
+            content: "";
+            display: block;
+            position: absolute;
+            left: -30px;
+            width: 4px;
+            height: 80%;
+            border-radius: 5px;
+            background: linear-gradient(180deg, #180014 0%, rgba(57, 0, 9, 0.37) 16.15%, rgba(16, 0, 27, 0.67) 71.35%, #2F004D 100%);
+        }
+
+    }
+
+    scrollbar-width:thin;   
+    scrollbar-color: #2F004D #5F004D;
+    
+    &::-webkit-scrollbar {
+        width: auto;
+        height: 12px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: #2F004D;
+        border-radius: 15px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        border-radius: 15px;
+        background: #5F004D;
+        border: solid 3px #2F004D;
+    }
+    }
+}
+// Final Projetos
+
+// Inicio Certificados
+.certificados{
+    margin-top: 60px;
+    margin-bottom: 60px;
+
+    h1{
+        @include font-display(64, 400);
+        color: #fff;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    ul{
+        display: grid;
+        padding: 0 30px;
+        gap: 30px;
+
+        li{
+            display: grid;
+            border-radius: 15px 15px 150px 15px;
+            background: #180014;
+            box-shadow: 0px 4px 8px 0px rgba(9, 0, 0, 0.10);
+            padding: 15px 30px ;
+
+            h2{
+                @include font-display(24, 400);
+                color: #fff;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: relative;
+
+                span{
+                    @include font-display(16, 400);
+                    color:#888;
+                }
+
+                &::after{
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    bottom: -1px;
+                    width: 120px;
+                    height: 2px;
+                    border-radius: 15px;
+                    background: #F00;
+                }
+            }
+
+            span{
+                @include font-display(16, 400);
+                color: #888;
+                margin-bottom: 5px;
+            }
+
+            a{
+                @include font-display(20, 400);
+                color: #fff;
+                text-decoration:underline;
+                transition: .4s;
+                justify-self: start;
+
+                &:hover,
+                &:focus{
+                    color:#a44444;
+                }
+            }
+        }
+    }
+}
+// Final Certificados
+
+// Inicio Formulário
+.formulario{
+    display: grid;
+    justify-content: center;
+    max-width: 500px;
+
+    h1{
+        @include font-display(32, 400);
+        color: #fff;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    form{
+        display: grid;
+        gap: 20px;
+        border-radius: 15px;
+        background: #180014;
+        padding: 40px;
+        justify-content: center;
+
+        
+        
+        div{
+            display: grid;
+            @include font-display(20, 400);
+            color: #fff;
+
+            input,
+            textarea{
+                @include font-normal(16, 400);
+                padding: 10px 20px;
+                max-width: 50vw;
+                width: 50vw;
+                border-radius: 5px;
+                background: #2B001E;
+                box-shadow: 0px 4px 8px 0px rgba(13, 0, 30, 0.25);
+                color: #aaa;
+                border: 2px solid #0000;
+                transition: .4s;
+
+
+                &:focus{
+                    border: 2px solid #B11983;
+                    background: #FFF;
+                    box-shadow: 0px 0px 8px 2px rgba(177, 25, 131, 0.30);
+                    color: #000;
+                }
+            }
+        }
+
+        button{
+            justify-self: center;
+            @include font-display(24, 400);
+            color: #af6fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 1px solid #3D0063;
+            background: rgba(18, 0, 30, 0.85);
+            box-shadow: 0px 2px 8px 0px rgba(162, 89, 255, 0.10);
+            cursor: pointer;
+            transition: .4s;
+
+            &:hover,
+            &:focus{
+                background: rgb(25, 0, 40);
+            }
+        }
+    }
+}
+// Final Formulário
+
+// Inicio Footer
+
+// Final Footer
+
