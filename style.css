@@ -175,6 +175,7 @@ header .info-header li a:hover, header .info-header li a:focus {
   text-align: center;
   align-self: center;
   color: #fff;
+  margin-top: 10px;
 }
 .introducao .perfil h1::after {
   content: "";
