@@ -181,7 +181,6 @@ header .info-header li a:hover, header .info-header li a:focus {
 .apresentacao {
   display: grid;
   margin-top: 60px;
-  margin-bottom: 60px;
   gap: 60px;
   grid-template-columns: 1fr 1fr;
   color: #fff;
@@ -249,6 +248,14 @@ header .info-header li a:hover, header .info-header li a:focus {
   overflow: hidden;
   padding: 30px;
 }
+.projetos h1 {
+  margin-top: 60px;
+  font-family: "IBM Plex Mono", sans-serif, monospace;
+  font-size: 4rem;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+}
 .projetos ul {
   overflow-x: scroll;
   display: flex;
@@ -262,6 +269,10 @@ header .info-header li a:hover, header .info-header li a:focus {
   position: relative;
   display: flex;
   align-items: center;
+}
+.projetos ul li img {
+  width: 100%;
+  height: 100%;
 }
 .projetos ul li + li::before {
   content: "";
@@ -298,6 +309,7 @@ header .info-header li a:hover, header .info-header li a:focus {
   color: #fff;
   text-align: center;
   margin-bottom: 30px;
+  padding: 0 30px;
 }
 .certificados ul {
   display: grid;
@@ -370,6 +382,7 @@ header .info-header li a:hover, header .info-header li a:focus {
   color: #fff;
   text-align: center;
   margin-bottom: 20px;
+  padding: 0 30px;
 }
 .formulario form {
   display: grid;
@@ -391,7 +404,9 @@ header .info-header li a:hover, header .info-header li a:focus {
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 1rem;
   font-weight: 400;
+  margin-top: 5px;
   padding: 10px 20px;
+  min-width: 300px;
   max-width: 50vw;
   width: 50vw;
   border-radius: 5px;
@@ -430,6 +445,7 @@ footer {
   background: linear-gradient(0deg, rgba(8, 0, 19, 0.6) 0%, rgba(2, 0, 4, 0.37) 100%);
   position: relative;
   display: flex;
+  gap: 30px;
   padding: 30px;
   justify-content: space-between;
   align-items: center;
@@ -448,7 +464,6 @@ footer::before {
 }
 footer .contato {
   display: flex;
-  flex: 1;
   gap: 20px;
   font-family: "IBM Plex Mono", sans-serif, monospace;
   font-size: 1rem;
@@ -474,19 +489,264 @@ footer .contato a + a::before {
   background: #f00;
   left: -10px;
 }
-footer .redes {
-  flex: 1;
-}
 footer .redes ul {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   justify-content: end;
   transition: 0.4s;
 }
 footer .redes ul li {
+  display: flex;
+  position: relative;
+  width: 30px;
+  height: 30px;
   transition: 0.4s;
 }
-footer .redes ul li:hover,
-footer .redes ul li:focus {
-  filter: brightness(50%);
+footer .redes ul li + li::before {
+  content: "";
+  display: block;
+  position: absolute;
+  align-self: center;
+  width: 2px;
+  left: -15px;
+  height: 20px;
+  border-radius: 15px;
+  background: #f00;
+}
+
+@media (max-width: 800px) {
+  header {
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+  }
+  header .info-header li {
+    font-family: "IBM Plex Mono", sans-serif, monospace;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  .introducao {
+    margin-top: 30px;
+    gap: 30px;
+  }
+  .introducao .titulo-tecnologias h1 {
+    font-family: "IBM Plex Mono", sans-serif, monospace;
+    font-size: 3rem;
+    font-weight: 400;
+  }
+  .introducao .titulo-tecnologias .tecnologias {
+    margin-top: 15px;
+    grid-template-columns: repeat(4, 60px);
+    gap: 15px;
+  }
+  .introducao .titulo-tecnologias .tecnologias img {
+    height: 100%;
+  }
+  .introducao .perfil h1 {
+    display: grid;
+    font-family: "IBM Plex Mono", sans-serif, monospace;
+    font-size: 1.25rem;
+    font-weight: 400;
+    justify-items: center;
+    align-items: center;
+    position: relative;
+  }
+  .introducao .perfil h1::after {
+    width: 80%;
+    height: 2px;
+    bottom: 0;
+  }
+  .introducao .perfil a {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  .introducao .perfil a img {
+    height: 16px;
+  }
+  .apresentacao {
+    gap: 30px;
+    grid-template-columns: 1fr;
+    color: #fff;
+  }
+  .apresentacao h2 {
+    text-align: start;
+  }
+  .apresentacao p {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    height: auto;
+  }
+  .apresentacao::after {
+    content: none;
+  }
+  .projetos h1 {
+    font-family: "IBM Plex Mono", sans-serif, monospace;
+    font-size: 3rem;
+    font-weight: 400;
+    text-align: start;
+  }
+  .projetos ul {
+    gap: 30px;
+  }
+  .projetos ul li {
+    min-width: 420px;
+  }
+  .projetos ul li + li::before {
+    left: -15px;
+  }
+  .certificados {
+    margin-top: 30px;
+  }
+  .certificados h1 {
+    font-family: "IBM Plex Mono", sans-serif, monospace;
+    font-size: 3rem;
+    font-weight: 400;
+    text-align: start;
+  }
+  .formulario {
+    justify-content: stretch;
+    max-width: 100%;
+    margin-bottom: 60px;
+    padding: 0 30px;
+  }
+  .formulario h1 {
+    font-family: "IBM Plex Mono", sans-serif, monospace;
+    font-size: 2rem;
+    font-weight: 400;
+    text-align: start;
+  }
+  .formulario form {
+    justify-content: stretch;
+    gap: 10px;
+  }
+  .formulario form div input,
+  .formulario form div textarea {
+    min-width: initial;
+    max-width: 80vw;
+    width: initial;
+    overflow: hidden;
+  }
+  footer {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+@media (max-width: 600px) {
+  header {
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+  }
+  header .info-header li {
+    font-family: "IBM Plex Mono", sans-serif, monospace;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  .introducao {
+    margin-top: 30px;
+    gap: 30px;
+  }
+  .introducao .titulo-tecnologias h1 {
+    font-family: "IBM Plex Mono", sans-serif, monospace;
+    font-size: 3rem;
+    font-weight: 400;
+  }
+  .introducao .titulo-tecnologias .tecnologias {
+    margin-top: 15px;
+    grid-template-columns: repeat(4, 60px);
+    gap: 15px;
+  }
+  .introducao .titulo-tecnologias .tecnologias img {
+    height: 100%;
+  }
+  .introducao .perfil h1 {
+    display: grid;
+    font-family: "IBM Plex Mono", sans-serif, monospace;
+    font-size: 1.25rem;
+    font-weight: 400;
+    justify-items: center;
+    align-items: center;
+    position: relative;
+  }
+  .introducao .perfil h1::after {
+    width: 80%;
+    height: 2px;
+    bottom: 0;
+  }
+  .introducao .perfil a {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  .introducao .perfil a img {
+    height: 16px;
+  }
+  .apresentacao {
+    gap: 30px;
+    grid-template-columns: 1fr;
+    color: #fff;
+  }
+  .apresentacao h2 {
+    text-align: start;
+  }
+  .apresentacao p {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    height: auto;
+  }
+  .apresentacao::after {
+    content: none;
+  }
+  .projetos h1 {
+    font-family: "IBM Plex Mono", sans-serif, monospace;
+    font-size: 3rem;
+    font-weight: 400;
+    text-align: start;
+  }
+  .projetos ul {
+    gap: 30px;
+  }
+  .projetos ul li {
+    min-width: 420px;
+  }
+  .projetos ul li + li::before {
+    left: -15px;
+  }
+  .certificados {
+    margin-top: 30px;
+  }
+  .certificados h1 {
+    font-family: "IBM Plex Mono", sans-serif, monospace;
+    font-size: 3rem;
+    font-weight: 400;
+    text-align: start;
+  }
+  .formulario {
+    justify-content: stretch;
+    max-width: 100%;
+    margin-bottom: 60px;
+    padding: 0 30px;
+  }
+  .formulario h1 {
+    font-family: "IBM Plex Mono", sans-serif, monospace;
+    font-size: 2rem;
+    font-weight: 400;
+    text-align: start;
+  }
+  .formulario form {
+    justify-content: stretch;
+    gap: 10px;
+  }
+  .formulario form div input,
+  .formulario form div textarea {
+    min-width: initial;
+    max-width: 80vw;
+    width: initial;
+    overflow: hidden;
+  }
+  footer {
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }/*# sourceMappingURL=style.css.map */

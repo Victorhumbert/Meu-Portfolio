@@ -103,7 +103,7 @@ header{
     }
     }
     .info-header li{
-        @include font-display(24);
+        @include font-display(24, 400);
         color: #fff;
         display: flex;
         align-items: center;
@@ -137,7 +137,7 @@ header{
 
     .titulo-tecnologias{
         h1{
-            @include font-display(64);
+            @include font-display(64, 400);
             color: #fff;
         }
         .tecnologias{
@@ -220,7 +220,6 @@ header{
 .apresentacao{
     display: grid;
     margin-top: 60px;
-    margin-bottom: 60px;
     gap: 60px;
     grid-template-columns: 1fr 1fr;
     color: #fff;
@@ -293,6 +292,12 @@ header{
     overflow: hidden;
     padding: 30px;
 
+    h1{
+        margin-top: 60px;
+        @include font-display(64, 400);
+        color: #fff;
+        text-align: center;
+    }
 
     ul{
     overflow-x: scroll;
@@ -307,7 +312,10 @@ header{
         display: flex;
         align-items: center;
 
-
+        img{
+            width: 100%;
+            height: 100%;
+        }
 
         & + li::before{
             content: "";
@@ -354,6 +362,7 @@ header{
         color: #fff;
         text-align: center;
         margin-bottom: 30px;
+        padding: 0 30px;
     }
 
     ul{
@@ -428,6 +437,7 @@ header{
         color: #fff;
         text-align: center;
         margin-bottom: 20px;
+        padding: 0 30px;
     }
 
     form{
@@ -448,7 +458,9 @@ header{
             input,
             textarea{
                 @include font-normal(16, 400);
+                margin-top: 5px;
                 padding: 10px 20px;
+                min-width: 300px;
                 max-width: 50vw;
                 width: 50vw;
                 border-radius: 5px;
@@ -494,6 +506,7 @@ footer{
     background: linear-gradient(0deg, rgba(8, 0, 19, 0.60) 0%, rgba(2, 0, 4, 0.37) 100%);
     position: relative;
     display: flex;
+    gap: 30px;
     padding: 30px;
     justify-content: space-between;
     align-items: center;
@@ -513,11 +526,9 @@ footer{
 
     .contato{
         display: flex;
-        flex: 1;
         gap: 20px;
         @include font-display(16, 400);
         color: #fff;
-
         a{
             position: relative;
             display: flex;
@@ -543,23 +554,340 @@ footer{
     }
 
     .redes{
-        flex: 1;
-
         ul{
             display: flex;
-            gap: 20px;
+            gap: 30px;
             justify-content: end;
             transition: .4s;
 
             li{
+                display: flex;
+                position: relative;
+                width: 30px;
+                height: 30px;
                 transition: .4s;
-            }
-            li:hover,
-            li:focus{
-                filter:brightness(50%);
+
+                & + li::before{
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    align-self: center;
+                    width: 2px;
+                    left: -15px;
+                    height: 20px;
+                    border-radius: 15px;
+                    background: #f00;
+                }
             }
         }
     }
 }
 // Final Footer
 
+// 800px
+@media(max-width:800px){
+    // Inicio Header
+    header{
+        flex-wrap: wrap-reverse;
+        justify-content: center;    
+        
+        .info-header li{
+            @include font-display(24, 400);
+        }
+    }
+    // Final Header
+    
+    // Inicio Introdução
+    .introducao{
+        margin-top: 30px;
+        gap: 30px;
+    
+        .titulo-tecnologias{
+            h1{
+                @include font-display(48, 400);
+            }
+            .tecnologias{
+                margin-top: 15px;
+                grid-template-columns: repeat(4, 60px);
+                gap: 15px;
+
+                img{
+                    height: 100%;
+                }
+
+            }
+        }
+
+        .perfil{
+
+            h1{
+                display: grid;
+                @include font-display(20, 400);
+                justify-items: center;
+                align-items: center;
+                position: relative;
+                
+                &::after{
+                    width: 80%;
+                    height: 2px;
+                    bottom: 0;
+                }
+            }
+    
+            a{
+                @include font-normal(16, 400);
+
+                img{
+                    height: 16px;
+                }
+            }
+    
+    }
+}
+    // Final Introdução
+    
+    // Inicio Apresentação
+    .apresentacao{
+        gap: 30px;
+        grid-template-columns: 1fr;
+        color: #fff;
+    
+        h2{
+            text-align: start;
+        }
+    
+        p{
+            @include font-normal(24, 400);
+            height: auto;
+        }
+    
+        &::after{
+            content: none;
+        }
+    }
+    // Final Apresentação
+    
+    // Inicio Projetos
+    .projetos{
+
+        h1{
+            @include font-display(48, 400);
+            text-align: start;
+        }
+
+        ul{
+        gap: 30px;
+
+        li{
+            min-width: 420px;
+
+            & + li::before{
+                left: -15px;
+            }
+        }
+        }
+    }
+    // Final Projetos
+    
+    // Inicio Certificados
+    .certificados{
+        margin-top: 30px;
+        
+        h1{
+            @include font-display(48, 400);
+            text-align: start;
+        }
+    }
+    // Final Certificados
+    
+    // Inicio Formulário
+    .formulario{
+        justify-content: stretch;
+        max-width: 100%;
+        margin-bottom: 60px;
+        padding: 0 30px;
+    
+        h1{
+            @include font-display(32, 400);
+            text-align: start;
+        }
+    
+        form{
+            justify-content: stretch;
+            gap: 10px;
+
+            div{
+                input,
+                textarea{
+                    min-width: initial;
+                    max-width: 80vw;
+                    width: initial;
+                    overflow: hidden;
+
+                }
+            }
+        }
+    }
+    // Final Formulário
+    
+    // Inicio Footer
+    footer{
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    // Final Footer
+}
+
+// 600px
+@media(max-width:600px){
+    // Inicio Header
+    header{
+        flex-wrap: wrap-reverse;
+        justify-content: center;    
+        
+        .info-header li{
+            @include font-display(24, 400);
+        }
+    }
+    // Final Header
+    
+    // Inicio Introdução
+    .introducao{
+        margin-top: 30px;
+        gap: 30px;
+    
+        .titulo-tecnologias{
+            h1{
+                @include font-display(48, 400);
+            }
+            .tecnologias{
+                margin-top: 15px;
+                grid-template-columns: repeat(4, 60px);
+                gap: 15px;
+
+                img{
+                    height: 100%;
+                }
+
+            }
+        }
+
+        .perfil{
+
+            h1{
+                display: grid;
+                @include font-display(20, 400);
+                justify-items: center;
+                align-items: center;
+                position: relative;
+                
+                &::after{
+                    width: 80%;
+                    height: 2px;
+                    bottom: 0;
+                }
+            }
+    
+            a{
+                @include font-normal(16, 400);
+
+                img{
+                    height: 16px;
+                }
+            }
+    
+    }
+}
+    // Final Introdução
+    
+    // Inicio Apresentação
+    .apresentacao{
+        gap: 30px;
+        grid-template-columns: 1fr;
+        color: #fff;
+    
+        h2{
+            text-align: start;
+        }
+    
+        p{
+            @include font-normal(24, 400);
+            height: auto;
+        }
+    
+        &::after{
+            content: none;
+        }
+    }
+    // Final Apresentação
+    
+    // Inicio Projetos
+    .projetos{
+
+        h1{
+            @include font-display(48, 400);
+            text-align: start;
+        }
+
+        ul{
+        gap: 30px;
+
+        li{
+            min-width: 420px;
+
+            & + li::before{
+                left: -15px;
+            }
+        }
+        }
+    }
+    // Final Projetos
+    
+    // Inicio Certificados
+    .certificados{
+        margin-top: 30px;
+        
+        h1{
+            @include font-display(48, 400);
+            text-align: start;
+        }
+    }
+    // Final Certificados
+    
+    // Inicio Formulário
+    .formulario{
+        justify-content: stretch;
+        max-width: 100%;
+        margin-bottom: 60px;
+        padding: 0 30px;
+    
+        h1{
+            @include font-display(32, 400);
+            text-align: start;
+        }
+    
+        form{
+            justify-content: stretch;
+            gap: 10px;
+
+            div{
+                input,
+                textarea{
+                    min-width: initial;
+                    max-width: 80vw;
+                    width: initial;
+                    overflow: hidden;
+
+                }
+            }
+        }
+    }
+    // Final Formulário
+    
+    // Inicio Footer
+    footer{
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    // Final Footer
+}
