@@ -1,0 +1,176 @@
+
+.introducao{
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    gap: 60px;
+    padding: 0 30px;
+
+    .titulo-tecnologias{
+        h1{
+            @include font-display(64, 400);
+            color: #fff;
+        }
+        .tecnologias{
+            margin-top: 40px;
+            max-width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 80px);
+            gap: 20px;
+            justify-items: left;
+            
+            li{
+                border: solid 1px #fff;
+                border-radius: 10px;
+                padding: 10px;
+                transition: .4s;
+
+                &:hover{
+                    transform: scale(110%);
+                }
+            }
+        }
+    }
+
+    .perfil{
+        display: grid;
+
+        h1{
+            @include font-display(32, 400);
+            max-width: 100%;
+            text-align: center;
+            align-self: center;
+            color: #fff; 
+            
+            &::after{
+                content: "";
+                display: block;
+                width: 100%;
+                height: 2px;
+                border-radius: 5px;
+                background: linear-gradient(180deg, rgba(82, 0, 13, 0.70) 0%, rgba(74, 0, 58, 0.38) 100%);
+            }
+        }
+
+        a{
+            display: grid;
+            position: relative;
+            grid-template-columns: 1fr auto;
+            justify-self: center;
+            align-items: center;
+            align-self: start;
+            gap: 5px;
+            padding: 2px 5px;
+            @include font-normal(24, 400);
+            color: #A8A8A8cc;
+
+            &:hover,
+            &:focus{
+                filter: drop-shadow(0 0 0 #fff)
+            }
+
+            &::after{
+                content: "";
+                position: absolute;
+                display: block;
+                width: 0%;
+                height: 2px;
+                bottom: 0;
+                background: #52000D; 
+                transition: .4s;
+            }
+
+            &:hover::after,
+            &:focus::after{
+                width: 100%;
+            }
+        }
+    }
+}
+
+// 800px
+@media(max-width:800px){
+    .introducao{
+        margin-top: 30px;
+        gap: 30px;
+    
+        .titulo-tecnologias{
+            h1{
+                @include font-display(48, 400);
+            }
+            .tecnologias{
+                margin-top: 15px;
+                grid-template-columns: repeat(4, 60px);
+                gap: 15px;
+
+                img{
+                    height: 100%;
+                }
+
+            }
+        }
+
+        .perfil{
+
+            h1{
+                display: grid;
+                @include font-display(20, 400);
+                justify-items: center;
+                align-items: center;
+                position: relative;
+                
+                &::after{
+                    position: absolute;
+                    width: 80%;
+                    height: 2px;
+                    bottom: 0;
+                }
+            }
+    
+            a{
+                @include font-normal(16, 400);
+
+                img{
+                    height: 16px;
+                }
+            }
+        }
+    }
+}
+
+// 600px
+@media(max-width:600px){
+    .introducao{
+        flex-wrap: wrap-reverse;
+        margin-top: 30px;
+        gap: 30px;
+    
+        .titulo-tecnologias{
+            h1{
+                @include font-display(32, 400);
+            }
+            .tecnologias{
+                grid-template-columns: repeat(4, 50px);
+                li{
+                    padding: 5px;
+                }
+                img{
+                    height: 100%;
+                }
+            }
+        }
+
+        .perfil{
+
+            h1{
+                @include font-display(16, 400);
+            }
+            a{
+                @include font-normal(14, 400);
+                img{
+                    height: 14px;
+                }
+            }
+        }
+    }
+}

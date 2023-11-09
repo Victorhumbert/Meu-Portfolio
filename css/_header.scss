@@ -1,0 +1,127 @@
+
+header{
+    background: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    ul{
+        display: flex;
+        gap: 10px;
+        padding: 15px 30px;
+    }
+    
+    .icones-header li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    
+    
+    img{
+        width: 35px;
+        height: 35px;
+        position: relative;
+        padding: 2px;
+        background: #000;
+        border-radius: 5px;
+    }
+
+    a:hover::before,
+    a:focus::before{
+            content: "";
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200%;
+            height: 200%;
+            animation: girarBorda 2s linear infinite ;
+    }
+    @keyframes girarBorda {
+        from {
+            transform: translate(-50%, -50%) rotate(0deg);
+            background-image: conic-gradient(
+                #000,
+                #52000D,
+                #000,
+                #52000D
+                );
+        } to {
+            transform: translate(-50%, -50%) rotate(360deg);
+            background-image: conic-gradient(
+                #000,
+                #52000D,
+                #000,
+                #52000D
+            ); 
+        }
+    }
+    }
+    .info-header li{
+        @include font-display(24, 400);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        &::before{
+            content: "";
+            display: block;
+            height: 15px;
+            width: 2px;
+            margin-right: 4px;
+            border-radius: 15px;
+            background: #8C0000;
+        }
+        a{
+            transition: .4s;
+            &:hover,
+            &:focus{
+                color: #999;
+            }
+        }
+    }
+}
+
+// 800px
+@media(max-width:800px){
+    header{
+        .info-header li{
+            @include font-display(20, 400);
+        }
+    }
+}
+
+// 600px
+@media(max-width:600px){
+    header{
+        flex-wrap: nowrap;
+        justify-content: space-between;
+
+        .icones-header{
+            gap: 10px
+        }
+        
+        .info-header{ 
+            cursor: pointer;
+            padding: 10px 0;
+            margin-right: 30px;
+            li{
+                @include font-display(20, 400);
+                display: none;
+            }
+
+            &::after{
+                    content: "";
+                    display: block;
+                    background: #fff;
+                    width: 30px;
+                    height: 4px;
+                    box-shadow: 0 10px 0 #fff,
+                                0 -10px 0 #fff;
+            }
+        }
+    }
+}

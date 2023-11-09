@@ -1,0 +1,121 @@
+    
+.formulario{
+    display: grid;
+    justify-content: center;
+    max-width: 500px;
+    margin-bottom: 60px;
+
+    h1{
+        @include font-display(32, 400);
+        color: #fff;
+        text-align: center;
+        margin-bottom: 20px;
+        padding: 0 30px;
+    }
+
+    form{
+        display: grid;
+        gap: 20px;
+        border-radius: 15px;
+        background: #180014;
+        padding: 40px;
+        justify-content: center;
+
+        
+        
+        div{
+            display: grid;
+            @include font-display(20, 400);
+            color: #fff;
+
+            input,
+            textarea{
+                @include font-normal(16, 400);
+                margin-top: 5px;
+                padding: 10px 20px;
+                min-width: 300px;
+                max-width: 50vw;
+                width: 50vw;
+                border-radius: 5px;
+                background: #2B001E;
+                box-shadow: 0px 4px 8px 0px rgba(13, 0, 30, 0.25);
+                color: #aaa;
+                border: 2px solid #0000;
+                transition: .4s;
+
+
+                &:focus{
+                    border: 2px solid #B11983;
+                    background: #FFF;
+                    box-shadow: 0px 0px 8px 2px rgba(177, 25, 131, 0.30);
+                    color: #000;
+                }
+            }
+        }
+
+        button{
+            justify-self: center;
+            @include font-display(24, 400);
+            color: #af6fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 1px solid #3D0063;
+            background: rgba(18, 0, 30, 0.85);
+            box-shadow: 0px 2px 8px 0px rgba(162, 89, 255, 0.10);
+            cursor: pointer;
+            transition: .4s;
+
+            &:hover,
+            &:focus{
+                background: rgb(25, 0, 40);
+            }
+        }
+    }
+}
+
+// 800px
+@media(max-width:800px){
+    .formulario{
+        justify-content: stretch;
+        max-width: 100%;
+        margin-bottom: 60px;
+        padding: 0 30px;
+    
+        h1{
+            @include font-display(32, 400);
+            text-align: start;
+        }
+    
+        form{
+            justify-content: stretch;
+            gap: 10px;
+
+            div{
+                input,
+                textarea{
+                    min-width: initial;
+                    max-width: 80vw;
+                    width: initial;
+                    overflow: hidden;
+
+                }
+            }
+        }
+    }
+}
+
+// 600px
+@media(max-width:600px){
+    .formulario{
+        h1{
+            @include font-display(24, 400);
+            text-align: center;
+        }
+    
+        form{
+            button{
+                @include font-display(16, 400);
+            }
+        }
+    }
+}

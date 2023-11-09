@@ -1,0 +1,110 @@
+    
+footer{
+    background: linear-gradient(0deg, rgba(8, 0, 19, 0.60) 0%, rgba(2, 0, 4, 0.37) 100%);
+    position: relative;
+    display: flex;
+    gap: 30px;
+    padding: 30px;
+    justify-content: space-between;
+    align-items: center;
+
+    &::before{
+        content: "";
+        display: block;
+        position: absolute;
+        width: 80%;
+        height: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 15px;
+        background: #150031;
+        top: -4px;
+    }
+
+    .contato{
+        display: flex;
+        gap: 20px;
+        @include font-display(16, 400);
+        color: #fff;
+        a{
+            position: relative;
+            display: flex;
+            align-items: center;
+            transition: .4s;
+
+            &:hover,
+            &:focus{
+                color: #888;
+            }
+        }
+
+        a + a::before{
+            content: "";
+            display: block;
+            position: absolute;
+            width: 2px;
+            height: 32px;
+            border-radius: 15px;
+            background: #f00;
+            left: -10px;
+        }
+    }
+
+    .redes{
+        ul{
+            display: flex;
+            gap: 30px;
+            justify-content: end;
+            transition: .4s;
+
+            li{
+                display: flex;
+                position: relative;
+                width: 30px;
+                height: 30px;
+                transition: .4s;
+
+                & + li::before{
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    align-self: center;
+                    width: 2px;
+                    left: -15px;
+                    height: 20px;
+                    border-radius: 15px;
+                    background: #f00;
+                }
+            }
+        }
+    }
+}
+
+// 800px
+@media(max-width:800px){
+    footer{
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+// 600px
+@media(max-width:600px){
+    footer{
+        .contato{
+            flex-direction: column;
+
+            a{
+                text-align: center;
+                justify-self: center;
+
+                & + a::before{
+                    width: 32px;
+                    height: 2px;
+                    top: -10px;
+                }
+            }
+        }
+
+    }
+}
