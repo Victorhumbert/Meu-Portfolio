@@ -47,8 +47,8 @@ header .icones-header li {
   height: 40px;
 }
 header .icones-header li img {
-  width: 36px;
-  height: 36px;
+  width: 35px;
+  height: 35px;
   position: relative;
   padding: 2px;
   background: #000;
@@ -361,6 +361,7 @@ header .info-header li a:hover, header .info-header li a:focus {
   display: grid;
   justify-content: center;
   max-width: 500px;
+  margin-bottom: 60px;
 }
 .formulario h1 {
   font-family: "IBM Plex Mono", sans-serif, monospace;
@@ -423,4 +424,69 @@ header .info-header li a:hover, header .info-header li a:focus {
 }
 .formulario form button:hover, .formulario form button:focus {
   background: rgb(25, 0, 40);
+}
+
+footer {
+  background: linear-gradient(0deg, rgba(8, 0, 19, 0.6) 0%, rgba(2, 0, 4, 0.37) 100%);
+  position: relative;
+  display: flex;
+  padding: 30px;
+  justify-content: space-between;
+  align-items: center;
+}
+footer::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 80%;
+  height: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 15px;
+  background: #150031;
+  top: -4px;
+}
+footer .contato {
+  display: flex;
+  flex: 1;
+  gap: 20px;
+  font-family: "IBM Plex Mono", sans-serif, monospace;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #fff;
+}
+footer .contato a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: 0.4s;
+}
+footer .contato a:hover, footer .contato a:focus {
+  color: #888;
+}
+footer .contato a + a::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 2px;
+  height: 32px;
+  border-radius: 15px;
+  background: #f00;
+  left: -10px;
+}
+footer .redes {
+  flex: 1;
+}
+footer .redes ul {
+  display: flex;
+  gap: 20px;
+  justify-content: end;
+  transition: 0.4s;
+}
+footer .redes ul li {
+  transition: 0.4s;
+}
+footer .redes ul li:hover,
+footer .redes ul li:focus {
+  filter: brightness(50%);
 }/*# sourceMappingURL=style.css.map */

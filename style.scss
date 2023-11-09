@@ -63,8 +63,8 @@ header{
     
     
     img{
-        width: 36px;
-        height: 36px;
+        width: 35px;
+        height: 35px;
         position: relative;
         padding: 2px;
         background: #000;
@@ -421,6 +421,7 @@ header{
     display: grid;
     justify-content: center;
     max-width: 500px;
+    margin-bottom: 60px;
 
     h1{
         @include font-display(32, 400);
@@ -489,6 +490,76 @@ header{
 // Final Formulário
 
 // Inicio Footer
+footer{
+    background: linear-gradient(0deg, rgba(8, 0, 19, 0.60) 0%, rgba(2, 0, 4, 0.37) 100%);
+    position: relative;
+    display: flex;
+    padding: 30px;
+    justify-content: space-between;
+    align-items: center;
 
+    &::before{
+        content: "";
+        display: block;
+        position: absolute;
+        width: 80%;
+        height: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 15px;
+        background: #150031;
+        top: -4px;
+    }
+
+    .contato{
+        display: flex;
+        flex: 1;
+        gap: 20px;
+        @include font-display(16, 400);
+        color: #fff;
+
+        a{
+            position: relative;
+            display: flex;
+            align-items: center;
+            transition: .4s;
+
+            &:hover,
+            &:focus{
+                color: #888;
+            }
+        }
+
+        a + a::before{
+            content: "";
+            display: block;
+            position: absolute;
+            width: 2px;
+            height: 32px;
+            border-radius: 15px;
+            background: #f00;
+            left: -10px;
+        }
+    }
+
+    .redes{
+        flex: 1;
+
+        ul{
+            display: flex;
+            gap: 20px;
+            justify-content: end;
+            transition: .4s;
+
+            li{
+                transition: .4s;
+            }
+            li:hover,
+            li:focus{
+                filter:brightness(50%);
+            }
+        }
+    }
+}
 // Final Footer
 
