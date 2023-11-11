@@ -417,12 +417,12 @@ header .info-header li a:hover, header .info-header li a:focus {
   display: flex;
   align-items: center;
 }
-.projetos .lista-projetos .item-lista img {
+.projetos .lista-projetos .item-lista .img-projeto {
   width: 100%;
   height: 100%;
   transition: 0.4s;
 }
-.projetos .lista-projetos .item-lista + li::before {
+.projetos .lista-projetos .item-lista + .item-lista::before {
   content: "";
   display: block;
   position: absolute;
@@ -482,10 +482,10 @@ header .info-header li a:hover, header .info-header li a:focus {
   left: 50%;
   transform: translateX(-50%);
 }
-.projetos .lista-projetos .item-lista:hover ul li, .projetos .lista-projetos .item-lista:focus-within ul li {
+.projetos .lista-projetos .item-lista:hover ul .tecnologia-projeto, .projetos .lista-projetos .item-lista:focus-within ul .tecnologia-projeto {
   width: 30px;
 }
-.projetos .lista-projetos .item-lista:hover > img, .projetos .lista-projetos .item-lista:focus-within > img {
+.projetos .lista-projetos .item-lista:hover > .img-projeto, .projetos .lista-projetos .item-lista:focus-within > .img-projeto {
   filter: brightness(40%);
 }
 .projetos .lista-projetos::-webkit-scrollbar {
@@ -526,7 +526,7 @@ header .info-header li a:hover, header .info-header li a:focus {
   .projetos .lista-projetos .item-lista div a + a::before {
     height: 2px;
   }
-  .projetos .lista-projetos .item-lista + li::before {
+  .projetos .lista-projetos .item-lista + .item-lista::before {
     left: -16px;
   }
 }
@@ -541,28 +541,7 @@ header .info-header li a:hover, header .info-header li a:focus {
     z-index: 1;
     transform: scale(100%) translate(-50%, -50%);
   }
-  .projetos .lista-projetos .item-lista a {
-    position: relative;
-    transition: 0.4s;
-  }
-  .projetos .lista-projetos .item-lista a:hover, .projetos .lista-projetos .item-lista a:focus {
-    color: #f44444;
-  }
-  .projetos .lista-projetos .item-lista a + a::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: 2px;
-    background: #550000;
-    border-radius: 15px;
-    top: 0;
-  }
   .projetos .lista-projetos .item-lista ul {
-    transition: 0.4s;
     position: absolute;
     display: flex;
     gap: 10px;
@@ -570,10 +549,7 @@ header .info-header li a:hover, header .info-header li a:focus {
     left: 50%;
     transform: translateX(-50%);
   }
-  .projetos .lista-projetos .item-lista ul li {
-    width: 30px;
-  }
-  .projetos .lista-projetos .item-lista > img {
+  .projetos .lista-projetos .item-lista > .img-projeto {
     filter: brightness(40%);
   }
 }
