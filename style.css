@@ -419,7 +419,6 @@ header .info-header li a:hover, header .info-header li a:focus {
 }
 .projetos .lista-projetos .item-lista .img-projeto {
   width: 100%;
-  height: 100%;
   transition: 0.4s;
 }
 .projetos .lista-projetos .item-lista + .item-lista::before {
