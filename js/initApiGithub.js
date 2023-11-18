@@ -15,22 +15,28 @@ export default async function ApiGithub() {
 
             listaRepositorios.forEach(async (repositorio) => {
                 const nome = repositorio.name;
-                const urlImg = `https://raw.githubusercontent.com/${user}/${nome}/main/capa.png`;
-                const urlSite = `https://${user}.github.io/${nome}/`;
-                const urlRepositorio = repositorio.html_url;
+                const urlImg = `https://raw.githubusercontent.com/${user}/${nome}/main/capa.webp`;
+                fetch(urlImg).then(r => {
+                    if(r.ok){
+                        const urlSite = `https://${user}.github.io/${nome}/`;
+                        const urlRepositorio = repositorio.html_url;
 
-                function criarLista() {
-                    const criarElemento = document.createElement("li");
-                    criarElemento.setAttribute("class", "item-lista");
-                    criarElemento.innerHTML = `<img src="${urlImg}" alt="${nome}" width="520" height="320" class="img-projeto">
-                        <div>
-                            <a href="${urlSite}" target="_blank" class="url-pagina">Página</a>
-                            <a href="${urlRepositorio}" target="_blank" class="">Repositório</a>
-                        </div>`;
-                    listaProjetos.appendChild(criarElemento);
-                }
-
-                criarLista();
+                        function criarLista() {
+                            const criarElemento = document.createElement("li");
+                            criarElemento.setAttribute("class", "item-lista");
+                            criarElemento.innerHTML = `<img src="${urlImg}" alt="${nome}" width="520" height="320" class="img-projeto">
+                                <div>
+                                    <a href="${urlSite}" target="_blank" class="url-pagina">Página</a>
+                                    <a href="${urlRepositorio}" target="_blank" class="">Repositório</a>
+                                </div>`;
+                            listaProjetos.appendChild(criarElemento);
+                        }
+                        criarLista();
+                    } else {
+                        console.error("Erro durante a requisição da IMG:", urlImg);
+                    }
+                })
+                
             });
         }
 
