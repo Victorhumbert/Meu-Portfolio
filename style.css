@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -98,6 +99,9 @@ header .info-header li a {
 header .info-header li a:hover, header .info-header li a:focus {
   color: #999;
 }
+header .bar {
+  display: none;
+}
 
 @media (max-width: 800px) {
   header .info-header li {
@@ -108,30 +112,58 @@ header .info-header li a:hover, header .info-header li a:focus {
 }
 @media (max-width: 600px) {
   header {
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    width: 100%;
+    gap: 5px;
+    z-index: 1;
   }
   header .icones-header {
     gap: 10px;
   }
   header .info-header {
-    cursor: pointer;
-    padding: 10px 0;
-    margin-right: 30px;
-  }
-  header .info-header li {
-    font-family: "IBM Plex Mono", sans-serif, monospace;
-    font-size: 1.25rem;
-    font-weight: 400;
     display: none;
   }
-  header .info-header::after {
+  header .info-header li {
     content: "";
-    display: block;
+  }
+  header .info-header.ativo {
+    display: grid;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #000;
+    gap: 5px;
+    border-radius: 0 0 0 15px;
+  }
+  header .info-header.ativo li a {
+    width: 100%;
+    padding: 10px 15px 10px 0;
+  }
+  [data-navMenu] > div {
+    cursor: pointer;
+    position: relative;
+    display: grid;
+    margin-right: 30px;
+    gap: 5px;
+  }
+  [data-navMenu] > div .bar {
+    display: grid;
     background: #fff;
     width: 30px;
-    height: 4px;
-    box-shadow: 0 10px 0 #fff, 0 -10px 0 #fff;
+    height: 5px;
+    transition: 0.4s;
+    align-self: center;
+  }
+  [data-navMenu].ativo.ativo .bar:nth-child(1) {
+    margin-top: 5px;
+    transform: rotate(-45deg);
+  }
+  [data-navMenu].ativo.ativo .bar:nth-child(2) {
+    position: absolute;
+    opacity: 0;
+  }
+  [data-navMenu].ativo.ativo .bar:nth-child(3) {
+    margin-top: -15px;
+    transform: rotate(45deg);
   }
 }
 .introducao {
@@ -247,7 +279,7 @@ header .info-header li a:hover, header .info-header li a:focus {
     position: absolute;
     width: 80%;
     height: 2px;
-    bottom: 0;
+    bottom: -5px;
   }
   .introducao .perfil a {
     font-family: "IBM Plex Sans", sans-serif;
@@ -261,7 +293,7 @@ header .info-header li a:hover, header .info-header li a:focus {
 @media (max-width: 600px) {
   .introducao {
     flex-wrap: wrap-reverse;
-    margin-top: 30px;
+    margin-top: 90px;
     gap: 30px;
   }
   .introducao .titulo-tecnologias h1 {
@@ -282,14 +314,7 @@ header .info-header li a:hover, header .info-header li a:focus {
     font-family: "IBM Plex Mono", sans-serif, monospace;
     font-size: 1rem;
     font-weight: 400;
-  }
-  .introducao .perfil a {
-    font-family: "IBM Plex Sans", sans-serif;
-    font-size: 0.875rem;
-    font-weight: 400;
-  }
-  .introducao .perfil a img {
-    height: 14px;
+    margin-bottom: 5px;
   }
 }
 .apresentacao {
@@ -403,6 +428,23 @@ header .info-header li a:hover, header .info-header li a:focus {
   color: #fff;
   text-align: center;
 }
+.projetos h1::after {
+  content: "→";
+  display: inline-block;
+  position: absolute;
+  animation: arrowAnima 1.5s ease-in-out infinite;
+}
+@keyframes arrowAnima {
+  0% {
+    right: 20px;
+  }
+  50% {
+    right: 40px;
+  }
+  100% {
+    right: 20px;
+  }
+}
 .projetos .lista-projetos {
   overflow-x: scroll;
   display: flex;
@@ -416,10 +458,13 @@ header .info-header li a:hover, header .info-header li a:focus {
   position: relative;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 .projetos .lista-projetos .item-lista .img-projeto {
   width: 100%;
   transition: 0.4s;
+  -o-object-position: top center;
+     object-position: top center;
 }
 .projetos .lista-projetos .item-lista + .item-lista::before {
   content: "";
@@ -470,20 +515,6 @@ header .info-header li a:hover, header .info-header li a:focus {
   border-radius: 15px;
   top: 0;
 }
-.projetos .lista-projetos .item-lista ul {
-  transition: 0.4s;
-}
-.projetos .lista-projetos .item-lista:hover ul, .projetos .lista-projetos .item-lista:focus-within ul {
-  position: absolute;
-  display: flex;
-  gap: 10px;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.projetos .lista-projetos .item-lista:hover ul .tecnologia-projeto, .projetos .lista-projetos .item-lista:focus-within ul .tecnologia-projeto {
-  width: 30px;
-}
 .projetos .lista-projetos .item-lista:hover > .img-projeto, .projetos .lista-projetos .item-lista:focus-within > .img-projeto {
   filter: brightness(40%);
 }
@@ -513,6 +544,7 @@ header .info-header li a:hover, header .info-header li a:focus {
   }
   .projetos .lista-projetos .item-lista {
     min-width: 420px;
+    max-height: 260px;
   }
   .projetos .lista-projetos .item-lista div {
     gap: 5px;
@@ -536,17 +568,13 @@ header .info-header li a:hover, header .info-header li a:focus {
     font-weight: 400;
     text-align: center;
   }
+  .projetos .lista-projetos .item-lista {
+    min-width: 300px;
+    max-height: 200px;
+  }
   .projetos .lista-projetos .item-lista div {
     z-index: 1;
     transform: scale(100%) translate(-50%, -50%);
-  }
-  .projetos .lista-projetos .item-lista ul {
-    position: absolute;
-    display: flex;
-    gap: 10px;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
   }
   .projetos .lista-projetos .item-lista > .img-projeto {
     filter: brightness(40%);

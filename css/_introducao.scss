@@ -1,4 +1,3 @@
-
 .introducao{
     display: flex;
     justify-content: center;
@@ -124,7 +123,7 @@
                     position: absolute;
                     width: 80%;
                     height: 2px;
-                    bottom: 0;
+                    bottom: -5px;
                 }
             }
     
@@ -143,7 +142,7 @@
 @media(max-width:600px){
     .introducao{
         flex-wrap: wrap-reverse;
-        margin-top: 30px;
+        margin-top: 90px;
         gap: 30px;
     
         .titulo-tecnologias{
@@ -162,15 +161,9 @@
         }
 
         .perfil{
-
             h1{
                 @include font-display(16, 400);
-            }
-            a{
-                @include font-normal(14, 400);
-                img{
-                    height: 14px;
-                }
+                margin-bottom: 5px;
             }
         }
     }

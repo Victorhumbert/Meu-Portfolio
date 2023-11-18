@@ -7,6 +7,24 @@
         @include font-display(64, 400);
         color: #fff;
         text-align: center;
+
+        &::after{
+            content: "→";
+            display: inline-block;
+            position: absolute;
+
+            animation: arrowAnima 1.5s ease-in-out infinite;
+
+            @keyframes arrowAnima {
+                0%{
+                    right: 20px;
+                } 50% {
+                    right: 40px;
+                } 100% {
+                    right: 20px;
+                }
+            }
+        }
     }
 
     .lista-projetos{
@@ -21,10 +39,12 @@
         position: relative;
         display: flex;
         align-items: center;
+        overflow: hidden;
 
         .img-projeto{
             width: 100%;
             transition: .4s;
+            object-position: top center;
         }
 
         & + .item-lista::before{
@@ -83,22 +103,6 @@
             }
         }
 
-        ul{
-            transition: .4s;
-        }
-        &:hover ul,
-        &:focus-within ul{
-            position: absolute;
-            display: flex;
-            gap: 10px;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            .tecnologia-projeto{
-                width: 30px;
-            }
-        }
-
         &:hover > .img-projeto,
         &:focus-within > .img-projeto {
             filter: brightness(40%);
@@ -126,7 +130,7 @@
     }
 }
 
-    // 800px
+// 800px
 @media(max-width:800px){
     .projetos{
         h1{
@@ -139,6 +143,7 @@
 
             .item-lista{
                 min-width: 420px;
+                max-height: 260px;
 
                 div{
                     gap: 5px;
@@ -170,17 +175,13 @@
 
         .lista-projetos{
             .item-lista{
+
+                min-width: 300px;
+                max-height: 200px;
+
                 div{
                     z-index: 1;
                     transform: scale(100%) translate(-50%, -50%);
-                }
-                ul{
-                    position: absolute;
-                    display: flex;
-                    gap: 10px;
-                    bottom: 15px;
-                    left: 50%;
-                    transform: translateX(-50%);
                 }
                 & > .img-projeto {
                     filter: brightness(40%);
