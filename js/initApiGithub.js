@@ -17,7 +17,9 @@ export default async function ApiGithub() {
                 const nome = repositorio.name;
                 const urlImg = `https://raw.githubusercontent.com/${user}/${nome}/main/capa.webp`;
                 fetch(urlImg).then(r => {
-                    if(r.ok){
+                    if(!r.ok){
+                        console.error("Erro durante a requisição da IMG:", urlImg);
+                    } else {
                         const urlSite = `https://${user}.github.io/${nome}/`;
                         const urlRepositorio = repositorio.html_url;
 
@@ -32,11 +34,10 @@ export default async function ApiGithub() {
                             listaProjetos.appendChild(criarElemento);
                         }
                         criarLista();
-                    } else {
-                        console.error("Erro durante a requisição da IMG:", urlImg);
                     }
+                }).catch(error => {
+                    console.error("Erro durante a requisição da IMG", error)
                 })
-                
             });
         }
 

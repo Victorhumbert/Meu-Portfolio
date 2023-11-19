@@ -10,12 +10,15 @@ export default async function navMenu(){
     };
 
     function abrirMenu(menu){
-        console.log(menu)
         const dropDownMenu = document.querySelector(".info-header")
-        dropDownMenu.classList.add("ativo");
-        navMenu.classList.add("ativo");
-        navMenu.removeEventListener("click", abrirMenu);
-    return
+        if(menu.type === "click"){
+            dropDownMenu.classList.toggle("ativo");
+            navMenu.classList.toggle("ativo");
+        } else {
+            dropDownMenu.classList.add("ativo");
+            navMenu.classList.add("ativo");
+        }
+        return
     };
 
     navMenu.addEventListener("click", abrirMenu);
