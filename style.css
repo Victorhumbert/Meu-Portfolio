@@ -18,7 +18,7 @@ img {
 
 body {
   background: linear-gradient(160deg, #52000D 0%, #100000 39%, #10001A 86%);
-  min-height: 2000px;
+  min-height: 100vh;
 }
 
 .container {
@@ -884,5 +884,63 @@ footer .redes ul li + li::before {
     width: 32px;
     height: 2px;
     top: -10px;
+  }
+}
+.msg {
+  display: grid;
+  place-items: center;
+  padding: 30px;
+}
+.msg main {
+  display: grid;
+  gap: 20px;
+  justify-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  border: solid 1px rgba(68, 0, 0, 0.5333333333);
+  padding: 60px;
+  border-radius: 15px;
+  margin: 0 auto;
+}
+.msg main h1 {
+  font-family: "IBM Plex Mono", sans-serif, monospace;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #fff;
+  transition: 0.4s;
+}
+.msg main h1 span {
+  color: #0f0;
+}
+.msg main h1 span.erro {
+  color: #f00;
+}
+.msg main a {
+  font-family: "IBM Plex Mono", sans-serif, monospace;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.4;
+  -webkit-text-decoration: underline rgba(255, 0, 0, 0.4);
+          text-decoration: underline rgba(255, 0, 0, 0.4);
+  transition: 0.4s;
+}
+.msg main a:hover, .msg main a:focus {
+  color: #888;
+}
+
+@media (max-width: 600px) {
+  .msg main {
+    padding: 30px;
+    gap: 30px;
+  }
+  .msg main h1 {
+    font-family: "IBM Plex Mono", sans-serif, monospace;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  .msg main a {
+    font-family: "IBM Plex Mono", sans-serif, monospace;
+    font-size: 1.25rem;
+    font-weight: 400;
   }
 }/*# sourceMappingURL=style.css.map */
