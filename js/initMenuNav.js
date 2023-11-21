@@ -1,14 +1,6 @@
 export default async function navMenu(){
     const navMenu = document.querySelector("[data-navMenu]");
 
-    function abrirMenuTab(menu){
-        console.log(menu)
-        const dropDownMenu = document.querySelector(".info-header")
-        dropDownMenu.classList.add("ativo");
-        navMenu.classList.add("ativo");
-        return
-    };
-
     function abrirMenu(menu){
         const dropDownMenu = document.querySelector(".info-header")
         if(menu.type === "click"){
@@ -22,6 +14,6 @@ export default async function navMenu(){
     };
 
     navMenu.addEventListener("click", abrirMenu);
-    navMenu.addEventListener("keyup", abrirMenuTab);
+    navMenu.addEventListener("keyup", abrirMenu);
 
 }   

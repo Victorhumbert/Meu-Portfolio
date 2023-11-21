@@ -3,13 +3,14 @@ header('Content-Type: text/html; charset=utf-8');
 //Import PHPMailer classes into the global namespace
 //These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
-// use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+
 
 require './PHPMailer/src/Exception.php';
 require './PHPMailer/src/PHPMailer.php';
-// require './PHPMailer/src/SMTP.php';
-require 'config.php';
+require './PHPMailer/src/SMTP.php';
+require '../config/config.php';
 
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
@@ -27,13 +28,13 @@ try {
   $mail->CharSet = "UTF-8";
 
   //Recipients
-  $mail->setFrom("$_POST[email]", "$_POST[nome]");
-  $mail->addAddress("tormentavictor@gmail.com", "Victor H. Pagliuso");
-  $mail->addReplyTo("$_POST[email]");
+  $mail->setFrom(filter_var("$_POST[email]", FILTER_SANITIZE_EMAIL), "$_POST[nome]");
+  $mail->addAddress(filter_var($config["email"], FILTER_SANITIZE_EMAIL));
+  $mail->addReplyTo(filter_var("$_POST[email]"), FILTER_SANITIZE_EMAIL);
 
   //Content
   $mail->isHTML(true);
-  $mail->Subject = "$_POST[nome] via Portfólio";
+  $mail->Subject = filter_var("$_POST[nome] via Portfólio", FILTER_SANITIZE_STRING);
 
   $body = filter_var("$_POST[mensagem]", FILTER_SANITIZE_STRING);
 
@@ -42,8 +43,10 @@ try {
   $mail->AltBody = $body;
 
   $mail->send();
-  header('Location: success.html');
+  header('Location: success.php');
 } catch (Exception $e) {
-  header('Location: error.html');
-  echo "A mensagem não pode ser enviada. Erro: {$mail->ErrorInfo}";
+  session_start();
+  $_SESSION['msg_erro'] = "A mensagem não pôde ser enviada. Erro: {$mail->ErrorInfo}";
+  header('Location: error.php');
+  exit();
 }
