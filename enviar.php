@@ -29,7 +29,7 @@ try {
 
   //Recipients
   $mail->setFrom(filter_var("$_POST[email]", FILTER_SANITIZE_EMAIL), "$_POST[nome]");
-  $mail->addAddress(filter_var($config["email"], FILTER_SANITIZE_EMAIL));
+  $mail->addAddress(filter_var($config["email"], FILTER_SANITIZE_EMAIL), "$_POST[nome]");
   $mail->addReplyTo(filter_var("$_POST[email]"), FILTER_SANITIZE_EMAIL);
 
   //Content

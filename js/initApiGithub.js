@@ -1,4 +1,3 @@
-
 export default async function ApiGithub() {
     const user = "Victorhumbert";
     try{
