@@ -1,54 +1,54 @@
-.msg{
-  display: grid;
-  place-items: center;
-  padding: 30px;
-  main{
-    display: grid;
-    gap: 20px;
-    justify-items: center;
-    background: #0006;
-    border: solid 1px #4008;
-    padding: 60px;
-    border-radius: 15px;
-    margin: 0 auto;
-    h1{
-      @include font-display(32, 400);
-      color: #fff;
-      transition: .4s;
+.msg {
+	display: grid;
+	place-items: center;
+	padding: 30px;
+	main {
+		display: grid;
+		gap: 20px;
+		justify-items: center;
+		background: #0006;
+		border: solid 1px #4008;
+		padding: 60px;
+		border-radius: 15px;
+		margin: 0 auto;
+		h1 {
+			@include font-display(32, 400);
+			color: #fff;
+			transition: 0.4s;
 
-      span{
-        color: #0f0
-      }
-      span.erro{
-        color: #f00
-      }
-    }
-    a{
-      @include font-display(24, 400);
-      color: #fff;
-      line-height: 1.4;
-      text-decoration: underline #f006;
-      transition: .4s;
+			span {
+				color: #0f0;
+			}
+			span.erro {
+				color: #f00;
+			}
+		}
+		a {
+			@include font-display(24, 400);
+			color: #fff;
+			line-height: 1.4;
+			text-decoration: underline #f006;
+			transition: 0.4s;
 
-      &:hover,
-      &:focus{
-      color: #888;
-      }
-    }
-  }
+			&:hover,
+			&:focus {
+				color: #888;
+			}
+		}
+	}
 }
 
-@media(max-width:600px){
-  .msg{
-    main{
-      padding: 30px;
-      gap: 30px;
-      h1{
-        @include font-display(24, 400)
-      }
-      a{
-        @include font-display(20, 400)
-      }
-    } 
-  }
+@media (max-width: 600px) {
+	.msg {
+		main {
+			padding: 30px;
+			gap: 30px;
+			h1 {
+				@include font-display(24, 400);
+			}
+			a {
+				@include font-display(20, 400);
+			}
+		}
+	}
 }

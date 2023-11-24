@@ -11,7 +11,7 @@
 <body class="msg">
   <main>
     <h1>Mensagem não enviada <span class="erro">✖</span></h1>
-    <a href="./index.html">Voltar</a>
+    <a href="/">Voltar</a>
   </main>
 
   <script>

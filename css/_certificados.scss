@@ -1,108 +1,107 @@
+.certificados {
+	margin-top: 60px;
+	margin-bottom: 60px;
 
-    .certificados{
-    margin-top: 60px;
-    margin-bottom: 60px;
+	h1 {
+		@include font-display(64, 400);
+		color: #fff;
+		text-align: center;
+		margin-bottom: 30px;
+		padding: 0 30px;
+	}
 
-    h1{
-        @include font-display(64, 400);
-        color: #fff;
-        text-align: center;
-        margin-bottom: 30px;
-        padding: 0 30px;
-    }
+	ul {
+		display: grid;
+		padding: 0 30px;
+		gap: 30px;
 
-    ul{
-        display: grid;
-        padding: 0 30px;
-        gap: 30px;
+		li {
+			display: grid;
+			border-radius: 15px 15px 150px 15px;
+			background: #180014;
+			box-shadow: 0px 4px 8px 0px rgba(9, 0, 0, 0.1);
+			padding: 15px 30px;
 
-        li{
-            display: grid;
-            border-radius: 15px 15px 150px 15px;
-            background: #180014;
-            box-shadow: 0px 4px 8px 0px rgba(9, 0, 0, 0.10);
-            padding: 15px 30px ;
+			h2 {
+				@include font-display(24, 400);
+				color: #fff;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				position: relative;
 
-            h2{
-                @include font-display(24, 400);
-                color: #fff;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                position: relative;
+				span {
+					@include font-display(16, 400);
+					color: #888;
+					text-wrap: nowrap;
+				}
 
-                span{
-                    @include font-display(16, 400);
-                    color:#888;
-                    text-wrap:nowrap;
-                }
+				&::after {
+					content: "";
+					display: block;
+					position: absolute;
+					bottom: -1px;
+					width: 120px;
+					height: 2px;
+					border-radius: 15px;
+					background: #f00;
+				}
+			}
 
-                &::after{
-                    content: "";
-                    display: block;
-                    position: absolute;
-                    bottom: -1px;
-                    width: 120px;
-                    height: 2px;
-                    border-radius: 15px;
-                    background: #F00;
-                }
-            }
+			span {
+				@include font-display(16, 400);
+				color: #888;
+				margin-bottom: 5px;
+			}
 
-            span{
-                @include font-display(16, 400);
-                color: #888;
-                margin-bottom: 5px;
-            }
+			a {
+				@include font-display(20, 400);
+				color: #fff;
+				text-decoration: underline;
+				transition: 0.4s;
+				justify-self: start;
 
-            a{
-                @include font-display(20, 400);
-                color: #fff;
-                text-decoration:underline;
-                transition: .4s;
-                justify-self: start;
-
-                &:hover,
-                &:focus{
-                    color:#a44444;
-                }
-            }
-        }
-    }
+				&:hover,
+				&:focus {
+					color: #a44444;
+				}
+			}
+		}
+	}
 }
 
 // 800px
-@media(max-width:800px){
-    .certificados{
-        margin-top: 30px;
-        
-        h1{
-            @include font-display(48, 400);
-            text-align: start;
-        }
-    }
+@media (max-width: 800px) {
+	.certificados {
+		margin-top: 30px;
+
+		h1 {
+			@include font-display(48, 400);
+			text-align: start;
+		}
+	}
 }
 
 // 600px
-@media(max-width:600px){
-    .certificados{
-        h1{
-            @include font-display(32, 400);
-            text-align: center;
-        }
+@media (max-width: 600px) {
+	.certificados {
+		h1 {
+			@include font-display(32, 400);
+			text-align: center;
+		}
 
-        ul{
-            li{
-                h2{
-                    @include font-display(20, 400);
-                    line-height: 1.2;
-                    display: grid;
-                }
+		ul {
+			li {
+				h2 {
+					@include font-display(20, 400);
+					line-height: 1.2;
+					display: grid;
+				}
 
-                span{
-                    @include font-display(14, 400);
-                }
-            }
-        }
-    }
+				span {
+					@include font-display(14, 400);
+				}
+			}
+		}
+	}
 }

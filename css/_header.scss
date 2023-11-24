@@ -1,167 +1,155 @@
-header{
-    background: #000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    ul{
-        display: flex;
-        gap: 10px;
-        padding: 15px 30px;
-    }
-    
-    .icones-header li{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    border-radius: 5px;
-    width: 40px;
-    height: 40px;
-    
-    
-    img{
-        width: 35px;
-        height: 35px;
-        position: relative;
-        padding: 2px;
-        background: #000;
-        border-radius: 5px;
-    }
+header {
+	background: #000;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	ul {
+		display: flex;
+		gap: 10px;
+		padding: 15px 30px;
+	}
 
-    a:hover::before,
-    a:focus::before{
-            content: "";
-            display: block;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 200%;
-            height: 200%;
-            animation: girarBorda 2s linear infinite ;
-    }
-    @keyframes girarBorda {
-        from {
-            transform: translate(-50%, -50%) rotate(0deg);
-            background-image: conic-gradient(
-                #000,
-                #52000D,
-                #000,
-                #52000D
-                );
-        } to {
-            transform: translate(-50%, -50%) rotate(360deg);
-            background-image: conic-gradient(
-                #000,
-                #52000D,
-                #000,
-                #52000D
-            ); 
-        }
-    }
-    }
-    .info-header li{
-        @include font-display(24, 400);
-        color: #fff;
-        display: flex;
-        align-items: center;
-        &::before{
-            content: "";
-            display: block;
-            height: 15px;
-            width: 2px;
-            margin-right: 4px;
-            border-radius: 15px;
-            background: #8C0000;
-        }
-        a{
-            transition: .4s;
-            &:hover,
-            &:focus{
-                color: #999;
-            }
-        }
-    }
+	.icones-header li {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		overflow: hidden;
+		border-radius: 5px;
+		width: 40px;
+		height: 40px;
 
-    .bar{
-        display: none;
-    }
+		img {
+			width: 35px;
+			height: 35px;
+			position: relative;
+			padding: 2px;
+			background: #000;
+			border-radius: 5px;
+		}
+
+		a:hover::before,
+		a:focus::before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 200%;
+			height: 200%;
+			animation: girarBorda 2s linear infinite;
+		}
+		@keyframes girarBorda {
+			from {
+				transform: translate(-50%, -50%) rotate(0deg);
+				background-image: conic-gradient(#000, #52000d, #000, #52000d);
+			}
+			to {
+				transform: translate(-50%, -50%) rotate(360deg);
+				background-image: conic-gradient(#000, #52000d, #000, #52000d);
+			}
+		}
+	}
+	.info-header li {
+		@include font-display(24, 400);
+		color: #fff;
+		display: flex;
+		align-items: center;
+		&::before {
+			content: "";
+			display: block;
+			height: 15px;
+			width: 2px;
+			margin-right: 4px;
+			border-radius: 15px;
+			background: #8c0000;
+		}
+		a {
+			transition: 0.4s;
+			&:hover,
+			&:focus {
+				color: #999;
+			}
+		}
+	}
+
+	.bar {
+		display: none;
+	}
 }
 
 // 800px
-@media(max-width:800px){
-    header{
-        .info-header li{
-            @include font-display(20, 400);
-        }
-    }
+@media (max-width: 800px) {
+	header {
+		.info-header li {
+			@include font-display(20, 400);
+		}
+	}
 }
 
 // 600px
-@media(max-width:600px){
-    header{
-        width: 100%;
-        gap: 5px;
-        z-index: 1;
+@media (max-width: 600px) {
+	header {
+		width: 100%;
+		gap: 5px;
+		z-index: 1;
 
-        .icones-header{
-            gap: 10px
-        }
-        .info-header{ 
-            display: none;
-            li{
-                content: "";
-            }
-        }
-        
-        .info-header.ativo{ 
-            display: grid;
-            position: absolute;
-            top: 60px;
-            right: 0;
-            background: #000;
-            gap: 5px;
-            border-radius: 0 0 0 15px;
+		.icones-header {
+			gap: 10px;
+		}
+		.info-header {
+			display: none;
+			li {
+				content: "";
+			}
+		}
 
-            li a{
-                width: 100%;
-                padding: 10px 15px 10px 0;
-            }
-        }    
-    }
+		.info-header.ativo {
+			display: grid;
+			position: absolute;
+			top: 60px;
+			right: 0;
+			background: #000;
+			gap: 5px;
+			border-radius: 0 0 0 15px;
 
-    [data-navMenu] > div{
-        cursor: pointer;
-        position: relative;
-        display: grid;
-        margin-right: 30px;
-        gap: 5px;
+			li a {
+				width: 100%;
+				padding: 10px 15px 10px 0;
+			}
+		}
+	}
 
-        .bar{
-            display: grid;
-            background: #fff;
-            width: 30px;
-            height: 5px;
-            transition: .4s;
-            align-self: center;
-        }
-        
-        
-    }
-    [data-navMenu].ativo{
-        &.ativo{
-            .bar:nth-child(1){
-                margin-top: 5px;
-                transform:rotate(-45deg);
-            }
-            .bar:nth-child(2){
-                position: absolute;
-                opacity: 0;
-            }
-            .bar:nth-child(3){
-                margin-top: -15px;
-                transform:rotate(45deg);
-            }
-        }
-    }
+	[data-navMenu] > div {
+		cursor: pointer;
+		position: relative;
+		display: grid;
+		margin-right: 30px;
+		gap: 5px;
+
+		.bar {
+			display: grid;
+			background: #fff;
+			width: 30px;
+			height: 5px;
+			transition: 0.4s;
+			align-self: center;
+		}
+	}
+	[data-navMenu].ativo {
+		&.ativo {
+			.bar:nth-child(1) {
+				margin-top: 5px;
+				transform: rotate(-45deg);
+			}
+			.bar:nth-child(2) {
+				position: absolute;
+				opacity: 0;
+			}
+			.bar:nth-child(3) {
+				margin-top: -15px;
+				transform: rotate(45deg);
+			}
+		}
+	}
 }

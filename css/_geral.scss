@@ -1,40 +1,40 @@
-@mixin font-display($font:64, $weight:400){
-    font-family: 'IBM Plex Mono', sans-serif, monospace;
-    font-size: calc($font / 16) + rem;
-    font-weight: $weight;
+@mixin font-display($font: 64, $weight: 400) {
+	font-family: "IBM Plex Mono", sans-serif, monospace;
+	font-size: calc($font / 16) + rem;
+	font-weight: $weight;
 }
-@mixin font-normal($font:64, $weight:400){
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: calc($font / 16) + rem;
-    font-weight: $weight;
-}
-
-*{
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    box-sizing: border-box;
-    list-style: none;
-    color: inherit;
-    outline: none;
+@mixin font-normal($font: 64, $weight: 400) {
+	font-family: "IBM Plex Sans", sans-serif;
+	font-size: calc($font / 16) + rem;
+	font-weight: $weight;
 }
 
-img{
-    display: block;
-    width: 100%;
-    object-fit: cover;
+* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	box-sizing: border-box;
+	list-style: none;
+	color: inherit;
+	outline: none;
 }
 
-body{
-    background: linear-gradient(160deg, #52000D 0%, #100000 39%, #10001A 86%);
-    min-height: 100vh;
+img {
+	display: block;
+	width: 100%;
+	object-fit: cover;
 }
 
-@mixin container{
-    max-width: 1440px;
-    margin: 0 auto;
+body {
+	background: linear-gradient(160deg, #52000d 0%, #100000 39%, #10001a 86%);
+	min-height: 100vh;
 }
 
-.container{
-    @include container;
+@mixin container {
+	max-width: 1440px;
+	margin: 0 auto;
+}
+
+.container {
+	@include container;
 }
